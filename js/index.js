@@ -71,12 +71,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         stagger: 0.5,
         ease: "back",
       })
-      .from(".topbar", {
-        opacity: 0,
-        yPercent: -100,
-        duration: 0.5,
-        ease: "back",
-      })
       .from(".hero-desc", { opacity: 0, ease: "back", duration: 1 });
 
     let mm = gsap.matchMedia();
@@ -121,51 +115,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       aboutTl.to(".about-vid video", {
         scale: 0.9,
-      });
-    });
-
-    mm.add("(max-width:768px)", () => {
-      // Desktop animation
-
-      //about video
-
-      let aboutTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-vid",
-
-          start: "center center",
-          end: "+=600",
-
-          scrub: 0.3,
-          pin: true,
-        },
-      });
-
-      aboutTl.to(".about-vid video", {
-        scale: 0.9,
-      });
-    });
-
-    mm.add("(max-width:576px)", () => {
-      // Desktop animation
-
-      //about video
-
-      let aboutTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-vid",
-
-          start: "center center",
-          end: "+=300",
-
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      aboutTl.to(".about-vid video", {
-        duration: 0.5,
-        scale: 0.7,
       });
     });
   });
