@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index-mq.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Blaka&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plaster&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gidan Architecture</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="images/icons8-brick-wall-16.png"
+    />
+
+    <!--lenis-->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
+  </head>
+  <body>
+    <section id="page-content">
+      <!-- NAVBAR -->
+      <header class="topbar" role="banner">
+        <div class="logo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-brick-wall-icon lucide-brick-wall"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+            <path d="M12 9v6" />
+            <path d="M16 15v6" />
+            <path d="M16 3v6" />
+            <path d="M3 15h18" />
+            <path d="M3 9h18" />
+            <path d="M8 15v6" />
+            <path d="M8 3v6" />
+          </svg>
+        </div>
+        <button
+          class="menu-button"
+          id="menuBtn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="mainMenu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-grip-icon lucide-grip"
+          >
+            <circle cx="12" cy="5" r="1" />
+            <circle cx="19" cy="5" r="1" />
+            <circle cx="5" cy="5" r="1" />
+            <circle cx="12" cy="12" r="1" />
+            <circle cx="19" cy="12" r="1" />
+            <circle cx="5" cy="12" r="1" />
+            <circle cx="12" cy="19" r="1" />
+            <circle cx="19" cy="19" r="1" />
+            <circle cx="5" cy="19" r="1" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- overlay -->
+      <div id="overlay" class="overlay" tabindex="-1"></div>
+
+      <!-- menu panel (centered, fixed width) -->
+      <nav
+        id="mainMenu"
+        class="menu-panel"
+        aria-hidden="true"
+        role="dialog"
+        aria-label="Main navigation"
+      >
+        <div class="band">A studio for design AND ARCHITECTURE.</div>
+
+        <div class="menu-grid">
+          <div class="menu-nav">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="work.html">Works</a></li>
+              <li><a href="#">Prototype</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+
+              <li class="small">Info@meraki.com<br />+44 210 345 6789</li>
+            </ul>
+          </div>
+
+          <div class="menu-social">
+            <h4>Social</h4>
+            <p>LinkedIn</p>
+            <p>Instagram</p>
+            <p>X (Twitter)</p>
+          </div>
+        </div>
+      </nav>
+
+      <!-- HERO LANDING -->
+      <section class="hero">
+        <div class="hero-text">
+          <h1>GIDAN</h1>
+          <div class="sub-title">
+            <p>
+              STUDIO BASED <br />
+              IN AFRICA
+            </p>
+            <a href="#" class="hover-link">
+              <span> Let's talk &#9656;</span> <span> Let's talk &#9656;</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-gallery">
+          <div class="hero-image">
+            <img
+              src="images/Recreational Resort resign from the ground, Sistan Baluchestan, Iran by Mahdiye Amiri-3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="hero-image">
+            <img src="images/Unknown-15.jpg" alt="" />
+          </div>
+          <div class="hero-image">
+            <img src="images/Churches and Cathedrals.jpg" alt="" />
+          </div>
+        </div>
+        <p class="hero-desc">
+          Gidan Architecture is a design studio celebrating the timeless beauty
+          of African architecture — where tradition meets innovation and
+          sustainability.
+        </p>
+      </section>
+
+      <!-- ABOUT US LANDING -->
+      <section class="about">
+        <h1>
+          ELEVATING
+          <span><img src="images/icons8-hut-64.png" alt="" /></span>
+          ARCHITECTURE
+        </h1>
+        <h1>
+          DEFINING
+          <span><img src="images/icons8-star-48.png" alt="" /></span> ELEGANCE
+        </h1>
+        <div class="about-vid">
+          <video
+            src="images/Introduction to The Freelancer's Journey (Part 1 of 43).publer.com.mov"
+            autoplay
+            muted
+            loop
+          ></video>
+        </div>
+        <p class="about-desc">
+          At Gidan Architecture, we draw from Africa’s architectural legacy —
+          from the sculptural forms of Sahelian mud mosques to the spatial
+          harmony of indigenous compounds. We reinterpret these principles with
+          contemporary design, technology, and sustainability in mind.
+        </p>
+
+        <div>
+          <a href="#" class="hover-link">
+            <span> ABOUT US &#9656;</span> <span> ABOUT US &#9656;</span></a
+          >
+        </div>
+      </section>
+
+      <!-- PROJECT LANDING -->
+      <section class="project">
+        <div class="project-header">
+          <h1>Selected Works</h1>
+          <div class="project-subh">
+            <a href="#" class="hover-link">
+              <span> All Projects &#9656;</span>
+              <span> All Projects &#9656;</span>
+            </a>
+            <p>scroll right</p>
+          </div>
+        </div>
+        <div class="scroll-container">
+          <div class="scroll-content">
+            <a href="#"
+              ><img
+                src="images/A Fusion of Tradition and Modernity in architectural college by Delnia Yousefi.jpg"
+                alt="Cinque Terre"
+            /></a>
+            <a href="#" id="pta">Marrakesh 2025 <span>&#9656;</span> </a>
+          </div>
+          <div class="scroll-content">
+            <a href=""
+              ><img
+                src="images/The iconic Grand Mosque in Djenne, northern Mali; 2.jpg"
+                alt="Cinque Terre"
+            /></a>
+            <a href="" id="pta">Mali 2014 <span>&#9656;</span> </a>
+          </div>
+          <div class="scroll-content">
+            <a href=""
+              ><img
+                src="images/Recreational Resort resign from the ground, Sistan Baluchestan, Iran by Mahdiye Amiri-2 2.jpg"
+                alt="Cinque Terre"
+            /></a>
+            <a href="#" id="pta">Namibia 2022 <span>&#9656;</span> </a>
+          </div>
+          <div class="scroll-content">
+            <a href=""
+              ><img src="images/Unknown-17 2.jpg" alt="Cinque Terre"
+            /></a>
+            <a href="" id="pta">Nigeria 2020 <span>&#9656;</span> </a>
+          </div>
+          <div class="scroll-content">
+            <a href=""
+              ><img src="images/Egypt Mosque 2.jpg" alt="Cinque Terre"
+            /></a>
+            <a href="" id="pta">Egypt 2016 <span>&#9656;</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENT LANDING -->
+      <section class="achieve">
+        <h1 id="a">
+          61
+          <span><img src="images/icons8-brick-48.png" alt="" /></span>PROJECTS.
+        </h1>
+        <h1 id="b">
+          5
+          <span><img src="images/icons8-globe-africa-64.png" alt="" /></span>
+          COUNTRIES.
+        </h1>
+        <h1 id="c">
+          11Y
+          <span><img src="images/icons8-prize-50.png" alt="" /></span>
+          EXPERIENCE.
+        </h1>
+      </section>
+
+      <!-- REACH OUT LANDING -->
+      <section class="contact">
+        <img
+          class="contact-image"
+          src="images/Desert Villa by Sarvenaz Nazarian 2.jpg"
+          alt=""
+        />
+        <div class="contact-info">
+          <h2>CULTURAL TAPESTRY. SUSTAINABLE DESIGN</h2>
+          <p>
+            Rooted in the timeless beauty and ingenuity of African architectural
+            heritage, reimagines tradition for the modern world. Whether it’s a
+            home, public space, or cultural landmark
+          </p>
+          <a href="#" class="hover-link">
+            <span> START A PROJECT &#9656;</span>
+            <span> START A PROJECT &#9656;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <section class="footer">
+        <div class="footer-subinfo">
+          <p class="address">
+            <span>Address:</span> <br />Badawa Street,<br />
+            Capetown, 3QR <br />
+            South Africa
+          </p>
+          <div class="call-info">
+            <p>gidana@info.com</p>
+            <p>+44 210 345 6789</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#">WORKS</a>
+          <a href="">ABOUT</a>
+          <a href="">JOURNAL</a>
+          <a href="">CONTACTS</a>
+        </div>
+      </section>
+      <p id="copyright">GIDAN Architecture © 2024 GIDAN. All right reserved.</p>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

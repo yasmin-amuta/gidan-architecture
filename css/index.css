@@ -1,0 +1,707 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  overscroll-behavior: none;
+  background-color: rgb(234, 229, 223);
+  line-height: normal;
+}
+
+/* FONTS */
+.blaka-regular {
+  font-family: "Blaka", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.zalando-sans-semiexpanded-zolando {
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.inknut-antiqua-light {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.inknut-antiqua-regular {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.inknut-antiqua-medium {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.inknut-antiqua-semibold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.inknut-antiqua-bold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.dm-sans-dm {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+.plaster-regular {
+  font-family: "Plaster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --plaster-font: "Plaster", system-ui;
+  --zalando-font: "Zalando Sans SemiExpanded", sans-serif;
+  --inknut-font: "Inknut Antiqua", serif;
+  --dm-font: "DM Sans", sans-serif;
+  --primary-color: #4f0909;
+  --small-color: rgba(255, 255, 255, 0.65);
+  --text-color: #5c0808;
+  --topbar-height: 55px;
+  --menu-width: 450px; /* ← change this to match their width */
+  --panel-bg: #111;
+  --panel-foreground: #e9e9e9;
+  --overlay-bg: rgba(0, 0, 0, 0.45);
+
+  --accent: #fff;
+  --accent-2: rgb(195, 178, 178);
+  --radius: 4px;
+  --primary-bgcolor: rgb(234, 229, 223);
+  /* 1410 - 1024 */
+  --fontsize-14: clamp(0.875rem, 0.875rem + 0vw, 0.875rem); /* 14 */
+  --fontsize-16: clamp(0.875rem, 0.5434rem + 0.5181vw, 1rem); /* 14 */
+  --fontsize-18: clamp(1rem, 0.6684rem + 0.5181vw, 1.125rem); /* 16 */
+  --fontsize-20: clamp(1.125rem, 0.7934rem + 0.5181vw, 1.25rem); /* 18 */
+}
+
+.screen-container {
+  display: flex;
+  gap: 1rem;
+}
+.screen-container img {
+  width: 100px;
+  height: 100px;
+  margin-top: -30px;
+}
+.screen-container h1 {
+  font-family: "Plaster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  color: #5c0808;
+}
+/* top bar */
+.topbar {
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--primary-color);
+  color: var(--accent);
+  z-index: 1000;
+  width: 30%;
+  box-shadow: 5px 5px 45px rgb(125, 79, 79);
+}
+
+/* logo in center */
+.logo {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding-left: 0.9rem;
+}
+
+/* menu button top-right (visual only) */
+.menu-button {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  color: var(--accent);
+  outline: none;
+  border: none;
+}
+.menu-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* overlay (darken background) */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  z-index: 900;
+  backdrop-filter: blur(2px);
+}
+.overlay.show {
+  display: block;
+}
+
+/* the floating panel */
+.menu-panel {
+  display: none;
+  position: fixed;
+  top: calc(var(--topbar-height) + 20px); /* small gap below topbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  background: var(--primary-color);
+  color: var(--panel-foreground);
+  z-index: 1001;
+  border-radius: 2px;
+  box-shadow: 10px 10px 45px rgb(67, 26, 26);
+}
+.menu-panel.show {
+  display: block;
+}
+
+/* small top band text */
+.menu-panel .band {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+  font-size: 0.7vw;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 8px 1rem;
+  margin-bottom: 10px; /* make band run full width */
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+/* content layout: 2 columns */
+.menu-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.9rem 0.9rem;
+}
+.menu-nav h4 {
+  margin-bottom: 14px;
+  font-size: var(--fontsize-14);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: var(--accent);
+}
+/* left nav list */
+.menu-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: var(--fontsize-16);
+}
+.menu-nav li {
+  margin-bottom: 7px;
+  font-size: var(--fontsize-18);
+  color: var(--accent-2);
+}
+.menu-nav li a {
+  color: inherit;
+  text-decoration: none;
+}
+.menu-nav li a:hover {
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+.menu-nav li.small {
+  font-size: var(--fontsize-14);
+  color: var(--small-color);
+  margin-top: 20px;
+}
+
+/* right column */
+.menu-social {
+  text-align: left;
+  font-size: var(--fontsize-16);
+}
+.menu-social h4 {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  font-size: var(--fontsize-14);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.menu-social p {
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: var(--fontsize-16);
+  color: var(--accent-2);
+}
+.menu-contact {
+  margin-top: 18px;
+  font-size: var(--fontsize-16);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* HERO STYLES */
+.hero {
+  margin-top: 5.5%;
+  padding: 2rem;
+}
+.hero-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.hero-text h1 {
+  font-size: 9.5vw;
+  color: var(--text-color);
+  text-align: end;
+  font-family: var(--plaster-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.sub-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 0.5rem;
+  margin-bottom: 0.9vw;
+}
+.sub-title p {
+  text-align: end;
+  color: var(--text-color);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1;
+  font-size: var(--fontsize-20);
+}
+.talk-button {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--accent);
+  padding: 0.4rem 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: var(--fontsize-16);
+  text-transform: uppercase;
+  width: fit-content;
+  transition: all 0.2s;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.hover-link {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--accent);
+  transition: all 0.1s ease-in;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  display: inline-block;
+  font-size: var(--fontsize-16);
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hover-link span {
+  padding: 0.8rem;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.hover-link span:nth-child(1) {
+  transform: translateY(0%); /* default position */
+}
+
+.hover-link span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%); /* hidden below */
+}
+
+.hover-link:hover span:nth-child(1) {
+  transform: translateY(-100%); /* slide up and disappear */
+}
+
+.hover-link:hover span:nth-child(2) {
+  transform: translateY(0%); /* new text slides up */
+}
+
+.hero .hero-gallery {
+  display: flex;
+  gap: 0.7rem;
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.hero-gallery .hero-image {
+  float: left;
+  width: 33.33%;
+  height: 43vh;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+}
+.hero-desc {
+  font-size: var(--fontsize-18);
+  line-height: 1.1;
+  color: var(--text-color);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  max-width: 50vw;
+}
+
+/* ABOUT STYLES */
+.about {
+  margin-top: 90px;
+  line-height: 1.3;
+  text-align: center;
+}
+.about h1 {
+  font-size: 2.3vw;
+  font-family: var(--dm-font);
+  font-weight: 500;
+  text-align: end;
+  margin-right: 9%;
+  color: var(--text-color);
+}
+.about span img {
+  height: 3vw;
+}
+.about .about-vid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.about-vid video {
+  width: 100%;
+  scale: 0.5;
+  transform-origin: center center;
+}
+.about-desc {
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: var(--fontsize-16);
+  color: var(--text-color);
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+.about-button {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--accent);
+  padding: 0.4rem 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: var(--fontsize-16);
+  text-transform: uppercase;
+  width: fit-content;
+  transition: all 0.2s;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+/* PROJECTS STYLES */
+.project {
+  margin-top: 70px;
+}
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 30px;
+}
+.project-subh {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 0.5rem;
+}
+.project-subh p {
+  font-size: var(--fontsize-14);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-color);
+}
+.project h1 {
+  font-family: var(--dm-font);
+  font-weight: 900;
+  font-size: 2.5vw;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+.project-button {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--accent);
+  padding: 0.4rem 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: var(--fontsize-16);
+  text-transform: uppercase;
+  width: fit-content;
+  transition: all 0.2s;
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+
+  transition: all 0.2s;
+}
+.project .scroll-container {
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.project .scroll-container img {
+  width: 56vw;
+  aspect-ratio: 7/5;
+  padding: 10px;
+  transform: scale(1);
+}
+.project .scroll-container img:hover {
+  padding: 20px;
+  transform: scale(1.05);
+}
+.project .scroll-container .scroll-content {
+  display: flex;
+  flex-direction: column;
+}
+.project .scroll-container .scroll-content a {
+  text-decoration: none;
+  font-size: var(--fontsize-16);
+  color: var(--text-color);
+  font-family: var(--inknut-font);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+}
+.scroll-content span {
+  font-size: var(--fontsize-20);
+}
+.project .scroll-container .scroll-content #pta {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+/* ACHIEVEMENT STYLES */
+.achieve {
+  margin-top: 150px;
+  margin-left: 20%;
+}
+.achieve h1 {
+  font-size: 3.6vw;
+  font-family: var(--inknut-font);
+  font-weight: 700;
+  line-height: 4.7rem;
+  color: var(--text-color);
+}
+.achieve img {
+  display: inline-flex;
+  height: 3vw;
+}
+.achieve #a {
+  margin-left: 23%;
+}
+.achieve #c {
+  text-align: center;
+}
+
+/* TEAM STYLES */
+.team {
+  margin-top: 150px;
+}
+.team-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  color: var(--primary-color);
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.team-heading h1 {
+  font-family: var(--dm-font);
+  font-weight: 900;
+  font-size: 2.5vw;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+.team-heading p {
+  font-family: var(--fontsize-18);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.team-image {
+  width: 70vw;
+  height: 700px;
+  text-align: center;
+  margin: 0 auto;
+}
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.team-desc {
+  margin: 30px 50px 0 70px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.team-desc p {
+  font-family: var(--fontsize-20);
+  max-width: 600px;
+  color: var(--text-color);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+.team-desc h3 {
+  font-family: var(--plaster-font);
+  font-weight: 400;
+  font-size: var(--fontsize-20);
+  text-align: end;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+/* CONTACT STYLES */
+.contact {
+  display: flex;
+  padding: 40px;
+  margin-top: 70px;
+}
+.contact-image {
+  width: 70%;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.9rem;
+}
+.contact h2 {
+  margin-left: -25%;
+  font-family: var(--plaster-font);
+  font-weight: 400;
+  font-size: 3vw;
+  color: var(--text-color);
+}
+.contact-info p {
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: var(--fontsize-16);
+  color: var(--text-color);
+  max-width: 550px;
+  margin-top: 30px;
+}
+
+/* FOOTER */
+.footer {
+  width: fit-content;
+  margin-top: 100px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5.5rem;
+  background-color: var(--text-color);
+  justify-content: center;
+  box-shadow: 5px 5px 45px rgb(125, 79, 79);
+}
+.footer-subinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.footer .address span {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.footer-subinfo p {
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: var(--accent-2);
+  font-size: var(--fontsize-16);
+}
+.footer .call-info p {
+  font-size: var(--fontsize-14);
+}
+.footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border-left: 2px solid rgb(255, 255, 255);
+  padding: 0px 30px;
+}
+.footer .footer-links a {
+  text-decoration: none;
+  color: var(--accent);
+  font-family: var(--zalando-font);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: var(--fontsize-18);
+  line-height: 1.2rem;
+
+  transition: all 0.2s;
+}
+.footer .footer-links a:hover {
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+#copyright {
+  font-size: 1.2vw;
+  font-family: "Almendra", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--text-color);
+  margin-top: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+}

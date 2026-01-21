@@ -1,0 +1,107 @@
+@media (max-width: 1024px) {
+  :root {
+    --topbar-height: 55px;
+    --menu-width: 450px; /* ← change this to match their width */
+    /* 1024- 769 */
+    --fontsize-14: clamp(0.875rem, 0.875rem + 0vw, 0.875rem); /* 14 */
+    --fontsize-16: clamp(0.875rem, 0.5434rem + 0.5181vw, 1rem); /* 14 */
+    --fontsize-18: clamp(1rem, 0.6684rem + 0.5181vw, 1.125rem); /* 16 */
+    --fontsize-20: clamp(1rem, 0.623rem + 0.7843vw, 1.125rem); /* 18 - 16 */
+    --fontsize-30: clamp(1.625rem, 1.248rem + 0.7843vw, 1.75rem); /* 28-26 */
+    --fontsize-80: clamp(
+      4.375rem,
+      3.2441rem + 2.3529vw,
+      4.75rem
+    ); /* - 76- 70 */
+  }
+  /* top bar */
+  .topbar {
+    width: 40%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel {
+    width: 40%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel .band {
+    font-size: 0.9vw;
+    transition: all 0.3s ease;
+  }
+  #copyright {
+    font-size: 1.6vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --topbar-height: 55px;
+    --menu-width: 450px; /* ← change this to match their width */
+    /* 768 - 390 */
+    --fontsize-14: clamp(0.625rem, 0.3671rem + 1.0582vw, 0.875rem); /* 14-10 */
+    --fontsize-16: clamp(0.625rem, 0.3671rem + 1.0582vw, 0.875rem); /* 10 */
+    --fontsize-18: clamp(0.625rem, 0.2381rem + 1.5873vw, 1rem); /* 16-10 */
+    --fontsize-20: clamp(0.625rem, 0.2381rem + 1.5873vw, 1rem); /* 16-10 */
+
+    --fontsize-80: clamp(
+      1.875rem,
+      -0.7044rem + 10.582vw,
+      4.375rem
+    ); /*  70-30 */
+    --fontsize-30: clamp(
+      1.125rem,
+      0.6091rem + 2.1164vw,
+      1.625rem
+    ); /* 26 - 18 */
+  }
+  /* Heading */
+  .heading {
+    padding: 0 15px;
+  }
+  .gallery {
+    padding: 0 15px;
+  }
+  .process-content {
+    gap: 1rem;
+  }
+  .footer {
+    padding: 20px;
+  }
+  .footer .footer-links {
+    padding: 0px 20px;
+  }
+  #copyright {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  /* top bar */
+  .topbar {
+    width: 55%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel {
+    width: 55%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel .band {
+    font-size: 1.4vw;
+    transition: all 0.3s ease;
+  }
+  /*PROCESS STYLES */
+  .process {
+    padding: 0 15px;
+  }
+  .footer {
+    gap: 3rem;
+  }
+  .footer .footer-links {
+    gap: 0.5rem;
+  }
+  .footer-subinfo {
+    gap: 0.5rem;
+  }
+  #copyright {
+    font-size: 2.5vw;
+  }
+}

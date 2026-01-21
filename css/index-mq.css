@@ -1,0 +1,229 @@
+@media (max-width: 1024px) {
+  :root {
+    --topbar-height: 55px;
+    --menu-width: 450px; /* ← change this to match their width */
+    /* 1024- 769 */
+    --fontsize-14: clamp(0.875rem, 0.875rem + 0vw, 0.875rem); /* 14 */
+    --fontsize-16: clamp(0.875rem, 0.5434rem + 0.5181vw, 1rem); /* 14 */
+    --fontsize-18: clamp(1rem, 0.6684rem + 0.5181vw, 1.125rem); /* 16 */
+    --fontsize-20: clamp(1rem, 0.623rem + 0.7843vw, 1.125rem); /* 18 - 16 */
+  }
+
+  /* top bar */
+  .topbar {
+    width: 40%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel {
+    width: 40%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel .band {
+    font-size: 0.9vw;
+    transition: all 0.3s ease;
+  }
+  .hero {
+    margin-top: 12%;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .hero-text h1 {
+    font-size: 10.5vw;
+  }
+  .hero-gallery .hero-image {
+    height: 40vh;
+    transition: all 0.3s ease;
+  }
+  .hero-desc {
+    max-width: 60vw;
+  }
+  .about h1 {
+    font-size: 3vw;
+  }
+  .about-desc {
+    max-width: 650px;
+  }
+  .project .scroll-container img {
+    width: 65vw;
+  }
+  .project .scroll-container .scroll-content #pta {
+    padding: 10px 10px;
+  }
+  .achieve h1 {
+    line-height: 2.5rem;
+  }
+  .contact-image {
+    width: 50%;
+  }
+  .contact {
+    display: flex;
+    padding: 30px;
+  }
+  .contact h2 {
+    margin-left: -40%;
+  }
+  .contact-info {
+    padding: 1.5rem 1.2rem;
+  }
+  #copyright {
+    font-size: 1.6vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --topbar-height: 55px;
+    --menu-width: 450px; /* ← change this to match their width */
+    /* 768 - 390 */
+    --fontsize-14: clamp(0.625rem, 0.3671rem + 1.0582vw, 0.875rem); /* 14-10 */
+    --fontsize-16: clamp(0.625rem, 0.3671rem + 1.0582vw, 0.875rem); /* 10 */
+    --fontsize-18: clamp(0.625rem, 0.2381rem + 1.5873vw, 1rem); /* 16-10 */
+    --fontsize-20: clamp(0.625rem, 0.2381rem + 1.5873vw, 1rem); /* 16-10 */
+  }
+  /* top bar */
+  .topbar {
+    width: 50%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel {
+    width: 50%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel .band {
+    font-size: 1.3vw;
+    transition: all 0.3s ease;
+  }
+  .hero {
+    margin-top: 21%;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .hero-text h1 {
+    font-size: 13vw;
+  }
+  .hero-gallery .hero-image {
+    height: 33vh;
+    transition: all 0.3s ease;
+  }
+  .hero-desc {
+    max-width: 70vw;
+  }
+  .sub-title {
+    margin-bottom: 1.4vw;
+  }
+  .about h1 {
+    font-size: 3.5vw;
+  }
+  .about-desc {
+    max-width: 520px;
+  }
+  .project h1 {
+    font-size: 3vw;
+  }
+  .project .scroll-container img {
+    width: 80vw;
+  }
+  .project .scroll-container .scroll-content #pta {
+    padding: 10px 10px;
+  }
+  .achieve {
+    margin-top: 100px;
+  }
+  .achieve h1 {
+    line-height: 2rem;
+  }
+  .contact-info {
+    padding: 2rem 1.2rem;
+    padding-top: 3rem;
+  }
+  .contact-info p {
+    margin-top: 20px;
+  }
+  .footer {
+    padding: 20px;
+  }
+  .footer .footer-links {
+    padding: 0px 20px;
+  }
+  #copyright {
+    font-size: 2vw;
+  }
+}
+@media (max-width: 576px) {
+  /* top bar */
+  .topbar {
+    width: 55%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel {
+    width: 55%;
+    transition: all 0.3s ease;
+  }
+  .menu-panel .band {
+    font-size: 1.4vw;
+    transition: all 0.3s ease;
+  }
+  .hero {
+    margin-top: 43%;
+    padding: 1rem;
+    transition: all 0.3s ease;
+  }
+  .hero-text h1 {
+    font-size: 14.5vw;
+  }
+  .sub-title {
+    margin-bottom: 1.6vw;
+  }
+  .hero-gallery .hero-image {
+    height: 24vh;
+    transition: all 0.3s ease;
+  }
+  .hero-desc {
+    max-width: 70vw;
+  }
+  .about h1 {
+    font-size: 4vw;
+  }
+  .about-desc {
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+  }
+  .project h1 {
+    font-size: 4vw;
+  }
+  .project-header {
+    padding: 0 20px;
+  }
+  .project .scroll-container {
+    padding: 0 10px;
+  }
+  .project .scroll-container img {
+    width: 85vw;
+  }
+  .project .scroll-container .scroll-content #pta {
+    padding: 10px 10px;
+  }
+
+  .achieve h1 {
+    line-height: 1.5rem;
+  }
+  .contact-info {
+    padding: 1rem 0.5rem;
+    padding-top: 3.5rem;
+  }
+  .contact-image {
+    width: 50%;
+  }
+  .footer {
+    gap: 3rem;
+  }
+  .footer .footer-links {
+    gap: 0.5rem;
+  }
+  .footer-subinfo {
+    gap: 0.5rem;
+  }
+  #copyright {
+    font-size: 2.5vw;
+  }
+}
