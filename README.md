@@ -24,4 +24,4 @@ Gidan Architecture is a static website project for a conceptual architectural fi
 
 ## Live Demo
 
-https://your-live-link-here
+https://yasmin-amuta.github.io/gidan-architecture/
