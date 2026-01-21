@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           trigger: ".about-vid",
 
           start: "center center",
-          end: "+=600",
+          end: "+=300",
 
           scrub: 0.3,
           pin: true,

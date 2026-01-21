@@ -673,6 +673,7 @@ body {
 }
 .footer .call-info p {
   font-size: var(--fontsize-14);
+  color: var(--accent);
 }
 .footer .footer-links {
   display: flex;

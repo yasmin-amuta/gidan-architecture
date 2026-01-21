@@ -100,11 +100,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
       yPercent: 100,
       duration: 1,
       ease: "back",
-    })
-    .from(".topbar", {
-      opacity: 0,
-      yPercent: -100,
-      duration: 1,
-      ease: "back",
     });
 });
